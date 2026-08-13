@@ -103,6 +103,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>Y:\VulkanSDK\1.4.350.0\Include;C:\Users\yummy\Desktop\vulkan\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\include;C:\Users\yummy\Desktop\vulkan\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -119,6 +120,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,7 +128,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Global_Variables\Constants_and_function\Cpp_files\Constants_and_function.cpp" />
+    <ClCompile Include="Global_Variables\Vulkan_GLFW_global_variable\Cpp_files\Vulkan_GLFW_global_variable_initialization.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="System objects\GLFW system\Cpp_files\GLFW_initialization.cpp" />
+    <ClCompile Include="System objects\Vulkan_system\Cpp_files\Vulkan_resources.cpp" />
+    <ClCompile Include="System objects\Vulkan_system\Cpp_files\Vulkan_system.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Global_Variables\Constants_and_function\Headers\Constants_and_function.h" />
+    <ClInclude Include="Global_Variables\Vulkan_GLFW_global_variable\Headers\Vulkan_resources_decleration.h" />
+    <ClInclude Include="System objects\GLFW system\Headers\GLFW_initialization.h" />
+    <ClInclude Include="System objects\GLFW system\Headers\GLFW_obj_initialization.h" />
+    <ClInclude Include="System objects\Vulkan_system\Headers\Vulkan_resources_initialization.h" />
+    <ClInclude Include="System objects\Vulkan_system\Headers\Vulkan_resources.h" />
+    <ClInclude Include="System objects\Vulkan_system\Headers\Vulkan_system.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
