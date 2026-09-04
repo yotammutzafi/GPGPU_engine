@@ -1,0 +1,55 @@
+#version 450
+
+struct Particle {
+	vec3 position;
+	vec3 velocity;
+    vec4 color;
+};
+
+layout (binding = 0) uniform ParameterUBO {
+    float deltaTime;
+	vec3 scale;
+} ubo;
+
+layout(std140, binding = 1) readonly buffer ParticleSSBOIn {
+   Particle particlesIn[ ];
+};
+
+layout(std140, binding = 2) buffer ParticleSSBOOut {
+   Particle particlesOut[ ];
+};
+
+layout (local_size_x = 256, local_size_y = 1, local_size_z = 1) in;
+
+void main() 
+{
+//Warning: you cant you particlesIn.length() because of the"Last Element Restriction"
+ uint index = gl_GlobalInvocationID.x%8192;
+  Particle particleIn = particlesIn[index];
+
+particlesOut[index].position = particlesIn[index].position + 0.0000025f*particlesIn[index].velocity.xyz * ubo.deltaTime;
+
+particlesOut[index].velocity = particleIn.velocity;
+
+if(1.0f<particlesOut[index].position.x)
+{
+particlesOut[index].velocity.x = -abs(particleIn.velocity.x);
+}
+if(0>particlesOut[index].position.x)
+{
+particlesOut[index].velocity.x = abs(particleIn.velocity.x);
+}
+
+if(1.0f<particlesOut[index].position.y)
+particlesOut[index].velocity.y = -abs(particleIn.velocity.y);
+if(0>particlesOut[index].position.y)
+particlesOut[index].velocity.y = abs(particleIn.velocity.y);
+
+if(1.0f<particlesOut[index].position.z)
+particlesOut[index].velocity.z = -abs(particleIn.velocity.z);
+if(0>particlesOut[index].position.z)
+particlesOut[index].velocity.z = abs(particleIn.velocity.z);
+
+
+
+}

@@ -139,10 +139,14 @@ void Logical_device_data::Create_logical_device( VkPhysicalDeviceFeatures& devic
         createInfo.enabledLayerCount = 0;
     }
 
+    VkPhysicalDeviceDynamicRenderingFeatures dynamicRenderingFeatures{};
+    dynamicRenderingFeatures.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_FEATURES;
+    dynamicRenderingFeatures.dynamicRendering = VK_TRUE;
+
     VkPhysicalDeviceTimelineSemaphoreFeatures timelineSemaphoreFeatures = {};
     timelineSemaphoreFeatures.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_FEATURES;
     timelineSemaphoreFeatures.timelineSemaphore = VK_TRUE; // זה החלק החשוב!
-    timelineSemaphoreFeatures.pNext = nullptr;
+    timelineSemaphoreFeatures.pNext = &dynamicRenderingFeatures;
     createInfo.pNext = &timelineSemaphoreFeatures;
 
 

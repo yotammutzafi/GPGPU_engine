@@ -33,6 +33,30 @@
     <ClCompile Include="System objects\GLFW system\Cpp_files\GLFW_initialization.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics_and_gpu_objects\pipline\Cpp_files\Pipline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics_and_gpu_objects\memory_buffer\Cpp_files\data_classes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Cpp_files\gpu_objects_container.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Cpp_files\PipelineRendering_constractor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Cpp_files\PipelineLayout_container_constractor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Cpp_files\Descriptor_set_layout_constractor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Cpp_files\Graphics_Pipeline_container_constractor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Cpp_files\Compute_Pipeline_container_constractor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System objects\Vulkan_system\Headers\Vulkan_system.h">
@@ -54,6 +78,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Global_Variables\Constants_and_function\Headers\Constants_and_function.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics_and_gpu_objects\memory_buffer\Headers\data_classes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics_and_gpu_objects\pipline\Headers\Pipline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Headers\gpu_objects_container.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

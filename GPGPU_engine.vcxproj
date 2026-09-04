@@ -130,6 +130,14 @@
   <ItemGroup>
     <ClCompile Include="Global_Variables\Constants_and_function\Cpp_files\Constants_and_function.cpp" />
     <ClCompile Include="Global_Variables\Vulkan_GLFW_global_variable\Cpp_files\Vulkan_GLFW_global_variable_initialization.cpp" />
+    <ClCompile Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Cpp_files\Compute_Pipeline_container_constractor.cpp" />
+    <ClCompile Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Cpp_files\Descriptor_set_layout_constractor.cpp" />
+    <ClCompile Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Cpp_files\gpu_objects_container.cpp" />
+    <ClCompile Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Cpp_files\Graphics_Pipeline_container_constractor.cpp" />
+    <ClCompile Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Cpp_files\PipelineLayout_container_constractor.cpp" />
+    <ClCompile Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Cpp_files\PipelineRendering_constractor.cpp" />
+    <ClCompile Include="Graphics_and_gpu_objects\memory_buffer\Cpp_files\data_classes.cpp" />
+    <ClCompile Include="Graphics_and_gpu_objects\pipline\Cpp_files\Pipline.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="System objects\GLFW system\Cpp_files\GLFW_initialization.cpp" />
     <ClCompile Include="System objects\Vulkan_system\Cpp_files\Vulkan_resources.cpp" />
@@ -138,6 +146,9 @@
   <ItemGroup>
     <ClInclude Include="Global_Variables\Constants_and_function\Headers\Constants_and_function.h" />
     <ClInclude Include="Global_Variables\Vulkan_GLFW_global_variable\Headers\Vulkan_resources_decleration.h" />
+    <ClInclude Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Headers\gpu_objects_container.h" />
+    <ClInclude Include="Graphics_and_gpu_objects\memory_buffer\Headers\data_classes.h" />
+    <ClInclude Include="Graphics_and_gpu_objects\pipline\Headers\Pipline.h" />
     <ClInclude Include="System objects\GLFW system\Headers\GLFW_initialization.h" />
     <ClInclude Include="System objects\GLFW system\Headers\GLFW_obj_initialization.h" />
     <ClInclude Include="System objects\Vulkan_system\Headers\Vulkan_resources_initialization.h" />
