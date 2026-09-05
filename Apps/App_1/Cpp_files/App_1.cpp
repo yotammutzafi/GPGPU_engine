@@ -1,5 +1,6 @@
 #include "../Headers/App_1.h"
 #include "../../System objects/Vulkan_system/Headers/Vulkan_resources_decleration.h"
+#include "../../standard_game_objects/test_console_writing/Headers/test_console_writing.h"
 submitinfos_access::submitinfos_access(const Queue& queue_input) :
 	queue {queue_input}
 {
@@ -29,6 +30,7 @@ queues{ queues_private }
 {
 	queues_private.emplace_back(*vulkan_resources.graphics_queue);
 	queues_private.emplace_back(*vulkan_resources.compute_queue);
+	game_objects.emplace_back(new console_writing{});
 }
 
 void App::Host_Iteration()
@@ -41,6 +43,12 @@ void App::Host_Iteration()
 
 void App::Device_Iteration()
 {
+}
+
+void App::Iteration()
+{
+	Host_Iteration();
+	Device_Iteration();
 }
 
 App::~App()

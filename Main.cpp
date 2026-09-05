@@ -21,5 +21,10 @@ int main()
     Gpu_objects_container container{ vulkan_resources.logical_device->logical_device_data };
     App app{};
 
+    for (size_t i = 0; i < 10; i++)
+    {
+        app.Iteration();
+    }
+
     return 0;
 }
