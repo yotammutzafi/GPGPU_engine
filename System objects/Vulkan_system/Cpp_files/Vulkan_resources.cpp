@@ -125,6 +125,8 @@ void Vulkan_resources::create_resources()
 
     graphics_family_queue = logical_device->family_queues[0];
     compute_family_queue = logical_device->family_queues[1];
+    graphics_queue = graphics_family_queue->queues[0];
+    compute_queue = compute_family_queue->queues[0];
 }
 
 Vulkan_resources::~Vulkan_resources()

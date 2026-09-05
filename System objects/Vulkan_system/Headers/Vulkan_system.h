@@ -46,10 +46,15 @@ private:
 class Family_queue_data
 {
 public:
+	enum Family_queue_purpose
+	{
+		Graphics, Compute, Transfer
+	};
 	const Logical_device_data* logical_device_data;
 	const int family_queue_physical_index;
 	const int family_queue_device_index;
-	Family_queue_data(const Logical_device_data* logical_device_data, const int family_queue_physical_index, const int family_queue_device_index);
+	const Family_queue_purpose purpose;
+	Family_queue_data(const Logical_device_data* logical_device_data, const int family_queue_physical_index, const int family_queue_device_index, Family_queue_purpose purpose);
 	VkInstance instace() const;
 	VkPhysicalDevice physical_device()const;
 	const Physical_device_data* physical_device_data()const;
@@ -113,7 +118,7 @@ class Family_queue
 public:
 	Family_queue_data family_queue_data;
 	std::vector<Queue*> queues;
-	Family_queue(Logical_device_data* logical_device_data, const int family_queue_physical_index, const int family_queue_device_index,int number_of_queues);
+	Family_queue(Logical_device_data* logical_device_data, const int family_queue_physical_index, const int family_queue_device_index,int number_of_queues,Family_queue_data::Family_queue_purpose purpose);
 	void Create_queues(int number_of_queues);
 };
 class Logical_device
@@ -122,7 +127,7 @@ public:
 	Logical_device_data logical_device_data;
 	std::vector<Family_queue*> family_queues;
 	Logical_device(const Physical_device_data* Physical_device_data, const int device_index, const std::vector<const char*> deviceExtensions, const std::vector<const char*> validationLayers, Logical_device_data::Queue_creation_option option);
-	void Create_familyqueues();
+	void Create_familyqueues(Logical_device_data::Queue_creation_option option);
 };
 
 class Physical_device

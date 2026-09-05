@@ -57,6 +57,12 @@
     <ClCompile Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Cpp_files\Compute_Pipeline_container_constractor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Apps\App_1\Cpp_files\App_1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="standard_game_objects\Iterable\Cpp_files\Iterable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System objects\Vulkan_system\Headers\Vulkan_system.h">
@@ -68,7 +74,7 @@
     <ClInclude Include="System objects\Vulkan_system\Headers\Vulkan_resources_initialization.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Global_Variables\Vulkan_GLFW_global_variable\Headers\Vulkan_resources_decleration.h">
+    <ClInclude Include="System objects\Vulkan_system\Headers\Vulkan_resources_decleration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="System objects\GLFW system\Headers\GLFW_initialization.h">
@@ -87,6 +93,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Graphics_and_gpu_objects\Graphics_and_gpu_objects_container\Headers\gpu_objects_container.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Apps\App_1\Headers\App_1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="standard_game_objects\Iterable\Headers\Iterable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="standard_game_objects\test_console_writing\Headers\test_console_writing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

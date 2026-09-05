@@ -1,7 +1,6 @@
 ﻿#include "../../Global_Variables/Constants_and_function/Headers/Constants_and_function.h"
 #include "../Headers/Vulkan_system.h"
 #include <iostream>
-
 #pragma region Physical_device_data
 Physical_device_data::Physical_device_data(VkInstance instance,VkPhysicalDevice physical_device, int index):
     instance{ instance }, physical_device{ physical_device }, index{index}
@@ -45,7 +44,8 @@ void Physical_device_data::printing_physical_device()const
 
 #pragma region Logical_device_data
 Logical_device_data::Logical_device_data(const Physical_device_data* Physical_device_data, const int device_index,const std::vector<const char*>& deviceExtensions, const std::vector<const char*>& validationLayers, Queue_creation_option option):physical_device_data{ Physical_device_data },
-device_index{ device_index }, createInfo{}, deviceExtensions{ deviceExtensions }, validationLayers{ validationLayers }
+device_index{ device_index }, createInfo {
+}, deviceExtensions{ deviceExtensions }, validationLayers{ validationLayers }
 {
     Queue_creation(option);
     //fill deviceFeaturess
@@ -156,7 +156,6 @@ void Logical_device_data::Create_logical_device( VkPhysicalDeviceFeatures& devic
 }
 
 
-
 VkInstance Logical_device_data::instace() const
 {
     return physical_device_data->instance;
@@ -175,9 +174,9 @@ int Logical_device_data::physical_device_index()const
 #pragma endregion
 
 #pragma region Family_queue_data
-Family_queue_data::Family_queue_data(const Logical_device_data* logical_device_data, const int family_queue_physical_index, const int family_queue_device_index):logical_device_data{ logical_device_data },
+Family_queue_data::Family_queue_data(const Logical_device_data* logical_device_data, const int family_queue_physical_index, const int family_queue_device_index, Family_queue_purpose purpose):logical_device_data{ logical_device_data },
 family_queue_physical_index{ family_queue_physical_index }
-, family_queue_device_index{ family_queue_device_index }
+, family_queue_device_index{ family_queue_device_index }, purpose{ purpose }
 {
 }
 VkInstance Family_queue_data::instace() const
@@ -384,7 +383,7 @@ VkCommandPool Commandbuffer::commandpool()const
 #pragma endregion
 
 #pragma region Family_queue
-Family_queue::Family_queue(Logical_device_data* logical_device_data, const int family_queue_physical_index, const int family_queue_device_index, int number_of_queues) :family_queue_data{ logical_device_data ,family_queue_physical_index ,family_queue_device_index }
+Family_queue::Family_queue(Logical_device_data* logical_device_data, const int family_queue_physical_index, const int family_queue_device_index, int number_of_queues, Family_queue_data::Family_queue_purpose purpose) :family_queue_data{ logical_device_data ,family_queue_physical_index ,family_queue_device_index, purpose }
 {
     Create_queues(number_of_queues);
 }
@@ -404,14 +403,29 @@ void Family_queue::Create_queues(int number_of_queues)
 Logical_device::Logical_device(const Physical_device_data* Physical_device_data, const int device_index, const std::vector<const char*> deviceExtensions, const std::vector<const char*> validationLayers,Logical_device_data::Queue_creation_option option):
     logical_device_data{ Physical_device_data ,device_index ,deviceExtensions,validationLayers,option }
 {
-    Create_familyqueues();
+    Create_familyqueues(option);
 }
-void Logical_device::Create_familyqueues()
+void Logical_device::Create_familyqueues(Logical_device_data::Queue_creation_option option)
 {
+    std::vector<Family_queue_data::Family_queue_purpose> purposes;
+    switch (option)
+    {
+    case Logical_device_data::Queue_creation_option::option_1:
+        purposes={Family_queue_data::Family_queue_purpose::Graphics,Family_queue_data::Family_queue_purpose::Compute};
+        break;
+       
+    default :
+        std::cout << "ERROR: Logical_device_data::Queue_creation: Invalid option" << std::endl;
+        std::cout << "ERROR: Logical_device_data::Queue_creation: Invalid option" << std::endl;
+        std::cout << "ERROR: Logical_device_data::Queue_creation: Invalid option" << std::endl;
+        break;
+
+    }
+
     family_queues.reserve(logical_device_data.queueCreateInfos.size());
     for (int i = 0; i <logical_device_data.queueCreateInfos.size(); i++)
     {
-        family_queues.push_back(new Family_queue(&logical_device_data, logical_device_data.queueCreateInfos[i].queueFamilyIndex, i, logical_device_data.queueCreateInfos[i].queueCount));
+        family_queues.push_back(new Family_queue(&logical_device_data, logical_device_data.queueCreateInfos[i].queueFamilyIndex, i, logical_device_data.queueCreateInfos[i].queueCount, purposes[i]));
     }
 
 }
@@ -419,9 +433,11 @@ void Logical_device::Create_familyqueues()
 #pragma endregion
 
 #pragma region Physical_device
-Physical_device::Physical_device(VkInstance instance, VkPhysicalDevice physical_device, int index) :physical_device_data { instance,physical_device,index }
+Physical_device::Physical_device
+(VkInstance instance, VkPhysicalDevice physical_device, int index) :physical_device_data { instance,physical_device,index }
 {
 }
+
 Logical_device* Physical_device::Create_logical_device(const std::vector<const char*> deviceExtensions, const std::vector<const char*> validationLayers, Logical_device_data::Queue_creation_option option)
 {
     Logical_device* ptr = new Logical_device(&physical_device_data, logical_devices.size(), deviceExtensions, validationLayers, option);
