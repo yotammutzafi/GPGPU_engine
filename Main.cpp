@@ -18,7 +18,6 @@ int main()
         std::cout << "Failed to initialize GLFW" << std::endl;
     }
     glm::mat4 m{ 1.0f };
-    Gpu_objects_container container{ vulkan_resources.logical_device->logical_device_data };
     App app{};
 
     for (size_t i = 0; i < 10; i++)

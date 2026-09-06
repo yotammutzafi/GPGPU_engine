@@ -33,6 +33,10 @@ void Memory_buffer::Allocate_memory(VkDeviceSize size, void* data_input, VkBuffe
 	bufferInfo.usage = usage;
 	if (handling == Memory_handling::needs_staging)
 		bufferInfo.usage = usage | VK_BUFFER_USAGE_TRANSFER_DST_BIT;
+	else
+	{
+		properties |= VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT;
+	}
 	bufferInfo.sharingMode = sharingmode;
 
 	if (vkCreateBuffer(device.device, &bufferInfo, nullptr, &buffer) != VK_SUCCESS) {
@@ -84,6 +88,7 @@ void Memory_buffer::Write_without_staging_buffer(const void* data_input)
 		break;
 	case Memory_handling::no_staging:
 		vkMapMemory(device.device, buffer_memory, 0, size, 0, &this->data);
+
 		memcpy(this->data, data_input, (size_t)size);
 		vkUnmapMemory(device.device, buffer_memory);
 

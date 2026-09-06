@@ -15,11 +15,13 @@ struct Gpu_objects_container
 	};
 	struct Descriptor_set_layout_container
 	{
-		std::array<VkDescriptorSetLayout, 4> descriptor_set_layout_array;
+		std::array<VkDescriptorSetLayout, 5> descriptor_set_layout_array;
 		VkDescriptorSetLayout& descriptor_set_layout0;
 		VkDescriptorSetLayout& descriptor_set_layout1;
 		VkDescriptorSetLayout& descriptor_set_layout2;
 		VkDescriptorSetLayout& descriptor_set_layout3;
+		VkDescriptorSetLayout& descriptor_set_layout4;
+
 		Descriptor_set_layout_container(const Logical_device_data& device);
 	};
 	struct PipelineLayout_container

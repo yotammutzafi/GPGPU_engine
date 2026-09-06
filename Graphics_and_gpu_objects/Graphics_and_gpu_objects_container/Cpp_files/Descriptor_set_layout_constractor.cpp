@@ -5,7 +5,8 @@ Gpu_objects_container::Descriptor_set_layout_container::Descriptor_set_layout_co
 descriptor_set_layout0{ descriptor_set_layout_array[0]},
 descriptor_set_layout1{ descriptor_set_layout_array[1] },
 descriptor_set_layout2{ descriptor_set_layout_array[2] },
-descriptor_set_layout3{ descriptor_set_layout_array[3] }
+descriptor_set_layout3{ descriptor_set_layout_array[3] },
+descriptor_set_layout4{ descriptor_set_layout_array[4] }
 {
     VkDescriptorSetLayoutBinding uboLayoutBinding[3]{};
     VkDescriptorSetLayoutCreateInfo layoutInfo{};
@@ -115,6 +116,22 @@ descriptor_set_layout3{ descriptor_set_layout_array[3] }
         layoutInfo.pBindings = uboLayoutBinding;
 
         if (vkCreateDescriptorSetLayout(device.device, &layoutInfo, nullptr, &descriptor_set_layout3) != VK_SUCCESS) {
+            throw std::runtime_error("failed to create descriptor set layout!");
+        }
+        //only 1 descriptor buffer that i can read and write to
+
+        uboLayoutBinding[0].binding = 0;
+        uboLayoutBinding[0].descriptorType = VK_DESCRIPTOR_TYPE_STORAGE_BUFFER;
+        //the length of the array of bindings in binding 0(our binding), in this case its thats 1 (array length = 1 )
+        uboLayoutBinding[0].descriptorCount = 1;
+        uboLayoutBinding[0].stageFlags = VK_SHADER_STAGE_COMPUTE_BIT;
+
+
+        layoutInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
+        layoutInfo.bindingCount = 1;
+        layoutInfo.pBindings = uboLayoutBinding;
+
+        if (vkCreateDescriptorSetLayout(device.device, &layoutInfo, nullptr, &descriptor_set_layout4) != VK_SUCCESS) {
             throw std::runtime_error("failed to create descriptor set layout!");
         }
 
