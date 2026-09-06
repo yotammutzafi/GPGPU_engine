@@ -66,6 +66,12 @@
     <ClCompile Include="standard_game_objects\test_console_writing\Cpp_files\test_console_writing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="standard_game_objects\test_console_writing_Device\Cpp_files\test_console_writing_Device.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics_and_gpu_objects\memory_buffer\Cpp_files\Memory_buffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System objects\Vulkan_system\Headers\Vulkan_system.h">
@@ -104,13 +110,22 @@
     <ClInclude Include="standard_game_objects\Iterable\Headers\Iterable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="standard_game_objects\test_console_writing\Headers\test_console_writing.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="standard_game_objects\test_console_writing\Headers\test_console_writing_small_decleration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Apps\App_1\Headers\App_1_small_decleration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="standard_game_objects\test_console_writing\Headers\test_console_writing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="standard_game_objects\test_console_writing_Device\Headers\test_console_writing_Device.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics_and_gpu_objects\memory_buffer\Headers\Memory_buffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Apps\App_1\Headers\submissioninfos_access.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

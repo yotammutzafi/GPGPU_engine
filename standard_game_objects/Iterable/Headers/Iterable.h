@@ -6,7 +6,7 @@ class Iterable
 {
 public:
 	virtual void Host_iteration()=0;
-	virtual void Device_iteration(const std::vector<submitinfos_access>& queues)=0;
+	virtual void Device_iteration(const std::vector<submissioninfos_access>& queues)=0;
 
 private:
 

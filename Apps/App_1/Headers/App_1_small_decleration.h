@@ -1,3 +1,3 @@
 #pragma once
-class submitinfos_access;
+class submissioninfos_access;
 class App;
