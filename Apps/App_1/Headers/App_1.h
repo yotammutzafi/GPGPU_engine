@@ -8,10 +8,12 @@
 class App
 {
 private:
-	std::vector<submissioninfos_access> queues_private;
+	std::vector<Submissioninfos_access> queues_private;
 	std::vector<Iterable*> game_objects;
+	//a fance to know when you finished doing the all of the iterables setups and they can clean the setup command pools
+	VkFence post_setup_fance;
 public:
-	const std::vector<submissioninfos_access>& queues;
+	const std::vector<Submissioninfos_access>& queues;
 	App();
 	void Host_Iteration();
 	void Device_Iteration();

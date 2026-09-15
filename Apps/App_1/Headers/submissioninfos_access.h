@@ -5,7 +5,7 @@
 
 
 class App;
-class submissioninfos_access
+class Submissioninfos_access
 {
 	friend class App;
 private:
@@ -14,10 +14,10 @@ private:
 public:
 	const Queue& queue;
 
-	submissioninfos_access(const Queue& queue);
+	Submissioninfos_access(const Queue& queue);
 
 	void Add_submitinfos(const std::vector<const VkSubmitInfo*>& submitinfos_input)const;
 
 
-	submissioninfos_access(submissioninfos_access&& other) noexcept;
+	Submissioninfos_access(Submissioninfos_access&& other) noexcept;
 };

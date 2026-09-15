@@ -4,10 +4,10 @@
 #include "../../standard_game_objects/test_console_writing_Device/Headers/test_console_writing_Device.h"
 
 
-submissioninfos_access::submissioninfos_access(const Queue& queue_input) :
+Submissioninfos_access::Submissioninfos_access(const Queue& queue_input) :
 	queue {queue_input}
 {}
-void submissioninfos_access::Add_submitinfos
+void Submissioninfos_access::Add_submitinfos
 (const std::vector<const VkSubmitInfo*>& submitinfos_input) const
 {
 	std::lock_guard<std::mutex> lock(mutex);
@@ -17,7 +17,7 @@ void submissioninfos_access::Add_submitinfos
 	}
 }
 
-submissioninfos_access::submissioninfos_access(submissioninfos_access&& other) noexcept :queue{other.queue}
+Submissioninfos_access::Submissioninfos_access(Submissioninfos_access&& other) noexcept :queue{other.queue}
 	
 {
 	// 1. Lock the other object to safely read its data in a multi-threaded environment
@@ -33,7 +33,7 @@ queues{ queues_private }
 	queues_private.emplace_back(*vulkan_resources.graphics_queue);
 	queues_private.emplace_back(*vulkan_resources.compute_queue);
 	game_objects.emplace_back(new console_writing{});
-	game_objects.emplace_back(new console_writing_Device{ vulkan_resources.logical_device->logical_device_data });
+	game_objects.emplace_back(new console_writing_Device{ queues });
 	
 	
 }

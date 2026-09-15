@@ -10,7 +10,15 @@ void console_writing::Host_iteration()
 	std::cout << "hello \n"  ;
 }
 
-void console_writing::Device_iteration(const std::vector<submissioninfos_access>& queues)
+void console_writing::Device_iteration(const std::vector<Submissioninfos_access>& queues)
 {
 	
+}
+
+void console_writing::SubmitSetupCommandBuffer(const std::vector<Submissioninfos_access>& queues)
+{
+}
+
+void console_writing::Post_initialization()
+{
 }

@@ -6,7 +6,7 @@ descriptor_set_layout0{ descriptor_set_layout_array[0]},
 descriptor_set_layout1{ descriptor_set_layout_array[1] },
 descriptor_set_layout2{ descriptor_set_layout_array[2] },
 descriptor_set_layout3{ descriptor_set_layout_array[3] },
-descriptor_set_layout4{ descriptor_set_layout_array[4] }
+single_buffer{ descriptor_set_layout_array[4] }
 {
     VkDescriptorSetLayoutBinding uboLayoutBinding[3]{};
     VkDescriptorSetLayoutCreateInfo layoutInfo{};
@@ -131,7 +131,7 @@ descriptor_set_layout4{ descriptor_set_layout_array[4] }
         layoutInfo.bindingCount = 1;
         layoutInfo.pBindings = uboLayoutBinding;
 
-        if (vkCreateDescriptorSetLayout(device.device, &layoutInfo, nullptr, &descriptor_set_layout4) != VK_SUCCESS) {
+        if (vkCreateDescriptorSetLayout(device.device, &layoutInfo, nullptr, &single_buffer) != VK_SUCCESS) {
             throw std::runtime_error("failed to create descriptor set layout!");
         }
 

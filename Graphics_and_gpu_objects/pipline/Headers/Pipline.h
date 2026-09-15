@@ -5,3 +5,5 @@
 bool Graphics_pipline(const Logical_device_data& device, VkPipeline& pipline, VkRenderPass renderpass, const std::vector<std::string>& shader_paths, const std::vector<VkShaderStageFlags>& shader_stages,
 	const Vertex_buffer& vertex_buffer, const VkPipelineLayout pipelineLayout,
 	const VkPipelineRenderingCreateInfo pipelineRenderingInfo);
+bool Compute_pipline(const Logical_device_data& device, VkPipeline& pipline, VkRenderPass renderpass, const std::string& shader_path, const VkPipelineLayout pipelineLayout,
+	const VkPipelineRenderingCreateInfo pipelineRenderingInfo);

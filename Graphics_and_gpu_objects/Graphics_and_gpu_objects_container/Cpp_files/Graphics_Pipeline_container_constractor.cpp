@@ -8,7 +8,7 @@ Gpu_objects_container::Graphics_Pipeline_container::Graphics_Pipeline_container(
 	graphics_pipeline_array{},
 	graphics_pipeline{ graphics_pipeline_array[0]}
 {
-	Graphics_pipline(device, graphics_pipeline_array[0], VK_NULL_HANDLE, { "assets/shaders/graphics_shaders/Pos2TexColor3/shader_vert.spv","assets/shaders/graphics_shaders/Pos2TexColor3/shader_frag.spv" }, { VK_SHADER_STAGE_VERTEX_BIT,VK_SHADER_STAGE_FRAGMENT_BIT },
+	/*Graphics_pipline(device, graphics_pipeline_array[0], VK_NULL_HANDLE, {"assets/shaders/graphics_shaders/Pos2TexColor3/shader_vert.spv","assets/shaders/graphics_shaders/Pos2TexColor3/shader_frag.spv"}, {VK_SHADER_STAGE_VERTEX_BIT,VK_SHADER_STAGE_FRAGMENT_BIT},
 		Vertex_3_2{}, pipelineLayout_container.pipelineRendering,
-		pipelineRendering_container.pipelineRendering);
+		pipelineRendering_container.pipelineRendering);*/
 }
