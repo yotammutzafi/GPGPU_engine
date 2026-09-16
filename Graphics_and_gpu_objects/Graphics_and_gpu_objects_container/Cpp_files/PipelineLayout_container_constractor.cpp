@@ -1,8 +1,8 @@
 #include "../Headers/gpu_objects_container.h"
 
 Gpu_objects_container::PipelineLayout_container::PipelineLayout_container(const Logical_device_data& device,const Descriptor_set_layout_container &descriptor_set_layout_container) :pipelinelayout_array{},
-pipelineRendering{ pipelinelayout_array[0].pipelineLayout},
-single_buffer{ pipelinelayout_array[1].pipelineLayout }
+pipelineRendering{ pipelinelayout_array[0]},
+single_buffer{ pipelinelayout_array[1] }
 {
 
 	

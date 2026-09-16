@@ -15,9 +15,13 @@ private:
 public:
 	const std::vector<Submissioninfos_access>& queues;
 	App();
+	void Post_initialization();
 	void Host_Iteration();
 	void Device_Iteration();
+	void Clear_CommandBuffers();
+	void Submit_CommandBuffers();
 	void Iteration();
+	void Main_Loop();
 	~App();
 
 

@@ -32,8 +32,8 @@ struct Gpu_objects_container
 			VkDescriptorSetLayout descriptor_set_layout;
 		};
 		std::array<Pipelinelayout, 2> pipelinelayout_array;
-		VkPipelineLayout& pipelineRendering;
-		VkPipelineLayout& single_buffer;
+		Pipelinelayout& pipelineRendering;
+		Pipelinelayout& single_buffer;
 		PipelineLayout_container(const Logical_device_data& device, const Descriptor_set_layout_container& descriptor_set_layout_container);
 	};
 	struct Graphics_Pipeline_container
@@ -49,8 +49,7 @@ struct Gpu_objects_container
 		struct Compute_Pipeline
 		{
 			VkPipeline pipeline;
-			VkPipelineLayout piplinelayout;
-			VkDescriptorSetLayout descriptorsetlayout;
+			PipelineLayout_container::Pipelinelayout piplinelayout;
 		};
 		std::array<Compute_Pipeline, 1>  compute_pipeline_array;
 		Compute_Pipeline& compute_pipeline{ compute_pipeline_array[0]};

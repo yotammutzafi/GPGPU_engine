@@ -1,6 +1,6 @@
 #version 450
 
-layout(std140, binding = 0) buffer ParticleSSBOIn {
+layout(std430, binding = 0) buffer ParticleSSBOIn {
    int particlesIn[ ];
 };
 

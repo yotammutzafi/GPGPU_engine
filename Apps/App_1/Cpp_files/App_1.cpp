@@ -8,7 +8,7 @@ Submissioninfos_access::Submissioninfos_access(const Queue& queue_input) :
 	queue {queue_input}
 {}
 void Submissioninfos_access::Add_submitinfos
-(const std::vector<const VkSubmitInfo*>& submitinfos_input) const
+(const std::vector< VkSubmitInfo>& submitinfos_input) const
 {
 	std::lock_guard<std::mutex> lock(mutex);
 	for (size_t i = 0; i < submitinfos_input.size(); i++)
@@ -33,9 +33,22 @@ queues{ queues_private }
 	queues_private.emplace_back(*vulkan_resources.graphics_queue);
 	queues_private.emplace_back(*vulkan_resources.compute_queue);
 	game_objects.emplace_back(new console_writing{});
-	game_objects.emplace_back(new console_writing_Device{ queues });
-	
-	
+	game_objects.emplace_back(new Console_writing_Device{ queues });
+
+	Submit_CommandBuffers();
+
+	//you need to wait for Submit_CommandBuffers() to finish initializiting all of the game_objects.
+	// dont use vkQueueWaitIdle. use a vkfance instead
+	vkQueueWaitIdle(queues_private[0].queue.queue);
+	vkQueueWaitIdle(queues_private[1].queue.queue);
+	Post_initialization();
+}
+void App::Post_initialization()
+{
+	for (unsigned int i= 0; i < game_objects.size(); i++)
+	{
+		game_objects[i]->Post_initialization();
+	}
 }
 
 void App::Host_Iteration()
@@ -48,13 +61,45 @@ void App::Host_Iteration()
 
 void App::Device_Iteration()
 {
+	for (size_t i = 0; i < game_objects.size(); i++)
+	{
+		game_objects[i]->Device_iteration(queues);
+	}
+}
+
+void App::Clear_CommandBuffers()
+{
+	for (size_t i = 0; i < queues_private.size(); i++)
+	{
+		queues_private[i].submitinfos.clear();
+	}
+}
+
+void App::Submit_CommandBuffers()
+{
+	for (unsigned int i = 0; i <queues_private.size() ; i++)
+	{
+		vkQueueSubmit(queues_private[i].queue.queue, queues_private[i].submitinfos.size(), queues_private[i].submitinfos.data(), VK_NULL_HANDLE);
+
+	}
 }
 
 void App::Iteration()
 {
 	Host_Iteration();
+	Clear_CommandBuffers();
 	Device_Iteration();
+	Submit_CommandBuffers();
 }
+
+void App::Main_Loop()
+{
+	for (size_t i = 0; i < 10; i++)
+	{
+		Iteration();
+	}
+}
+
 
 App::~App()
 {

@@ -7,7 +7,9 @@ Gpu_objects_container::Compute_Pipeline_container::Compute_Pipeline_container(co
 	PipelineLayout_container& pipelineLayout_container)
 {
 	//you need to create the compute buffer
-	Compute_pipline(device, compute_pipeline.pipeline, VK_NULL_HANDLE, "assets/shaders/compute_shader/buffer_editing_compute/compute_shader.spv", pipelineLayout_container.single_buffer,
+	compute_pipeline.piplinelayout = pipelineLayout_container.single_buffer;
+	Compute_pipline(device, compute_pipeline.pipeline, VK_NULL_HANDLE, "assets/shaders/compute_shader/buffer_editing_compute/compute_shader.spv", compute_pipeline.piplinelayout.pipelineLayout,
 		pipelineRendering_container.pipelineRendering
 	);
+
 }

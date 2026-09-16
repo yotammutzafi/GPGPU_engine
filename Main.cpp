@@ -20,10 +20,8 @@ int main()
     glm::mat4 m{ 1.0f };
     App app{};
 
-    for (size_t i = 0; i < 10; i++)
-    {
-        app.Iteration();
-    }
+    app.Main_Loop();
+    
 
     return 0;
 }
