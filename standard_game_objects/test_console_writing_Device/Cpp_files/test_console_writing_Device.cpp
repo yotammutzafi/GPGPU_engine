@@ -3,8 +3,7 @@
 #include <iostream>
 extern const Gpu_objects_container gpu_objects_container;
 
-//yotam you are here. you need to cerate commandpool and command buffer.
-// you need to choose how to pass the queue to console_writing_Device. like in what way
+
 Console_writing_Device::Console_writing_Device(const std::vector<Submissioninfos_access>& queues) :
 	device{ *queues[1].queue.logical_device_data()},
 compute_pipline{gpu_objects_container.compute_Pipeline_container.compute_pipeline},

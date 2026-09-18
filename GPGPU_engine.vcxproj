@@ -142,6 +142,8 @@
     <ClCompile Include="Graphics_and_gpu_objects\pipline\Cpp_files\Pipline.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="standard_game_objects\Iterable\Cpp_files\Iterable.cpp" />
+    <ClCompile Include="standard_game_objects\Locatable\Cpp_files\Locatable.cpp" />
+    <ClCompile Include="standard_game_objects\Rendable\Cpp_files\Rendable.cpp" />
     <ClCompile Include="standard_game_objects\test_console_writing\Cpp_files\test_console_writing.cpp" />
     <ClCompile Include="standard_game_objects\test_console_writing_Device\Cpp_files\test_console_writing_Device.cpp" />
     <ClCompile Include="System objects\GLFW system\Cpp_files\GLFW_initialization.cpp" />
@@ -155,6 +157,8 @@
     <ClInclude Include="Global_Variables\Constants_and_function\Headers\Constants_and_function.h" />
     <ClInclude Include="Graphics_and_gpu_objects\memory_buffer\Headers\Memory_buffer.h" />
     <ClInclude Include="standard_game_objects\Iterable\Headers\Iterable.h" />
+    <ClInclude Include="standard_game_objects\Locatable\Headers\Locatable.h" />
+    <ClInclude Include="standard_game_objects\Rendable\Headers\Rendable.h" />
     <ClInclude Include="standard_game_objects\test_console_writing\Headers\test_console_writing.h" />
     <ClInclude Include="standard_game_objects\test_console_writing\Headers\test_console_writing_small_decleration.h" />
     <ClInclude Include="standard_game_objects\test_console_writing_Device\Headers\test_console_writing_Device.h" />
