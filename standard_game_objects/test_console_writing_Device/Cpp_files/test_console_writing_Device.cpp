@@ -1,6 +1,7 @@
 #include "../Headers/test_console_writing_Device.h"
 #include "../../Graphics_and_gpu_objects/Graphics_and_gpu_objects_container/Headers/gpu_objects_container.h"
 #include <iostream>
+#include "Camera.h"
 extern const Gpu_objects_container gpu_objects_container;
 
 
@@ -71,6 +72,7 @@ void Console_writing_Device::createDescriptorSets()
 		throw std::runtime_error("failed to allocate descriptor sets!");
 	}
 }
+
 void Console_writing_Device::connect_buffersTOdescriptorsets()
 {
 	VkDescriptorBufferInfo bufferInfo{};

@@ -78,6 +78,12 @@
     <ClCompile Include="standard_game_objects\Locatable\Cpp_files\Locatable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="standard_game_objects\Camera\Cpp_files\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="standard_game_objects\Window\Cpp_files\Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System objects\Vulkan_system\Headers\Vulkan_system.h">
@@ -138,6 +144,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="standard_game_objects\Locatable\Headers\Locatable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="standard_game_objects\Camera\Headers\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="standard_game_objects\Render_target\Headers\Render_target.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="standard_game_objects\Window\Headers\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
